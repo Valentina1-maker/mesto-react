@@ -7,6 +7,7 @@ function EditProfilePopup() {
         name = "profile"
         title = "Редактировать профиль"
         buttonText ={Сохранить}
+        isOpen ={isOpen}
         >
         <input type="text" 
         id="name-input" 
