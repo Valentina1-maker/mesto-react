@@ -6,29 +6,30 @@ import {useState} from "react"
 
 function App() {
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = useState(false)
-  const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = useState(false)
-  const [isEditAvatarPopupOpen, setIsEditProfilePopupOpen] = useState(false)
+  // const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = useState(false)
+  // const [isEditAvatarPopupOpen, setIsEditProfilePopupOpen] = useState(false)
 
 
   function handleEditProfileClick() {
     setIsEditProfilePopupOpen(!isEditProfilePopupOpen);
   }
 
-  function handleEditAvatarClick() {
-    setIsAddPlacePopupOpen(!isAddPlacePopupOpen);
-  }
+  // function handleEditAvatarClick() {
+  //   setIsAddPlacePopupOpen(!isAddPlacePopupOpen);
+  // }
 
-  function handleAddPlaceClick() {
-    setIsEditProfilePopupOpen(!isEditAvatarPopupOpen);
-  }
+  // function handleAddPlaceClick() {
+  //   setIsEditProfilePopupOpen(!isEditAvatarPopupOpen);
+  // }
 
   return (
     <div className="root">
       <Header />
       <Main 
       onEditProfile={handleEditProfileClick}
-      onAddPlace={handleAddPlaceClick}
-      onEditAvatar={handleEditAvatarClick}/>
+      // onAddPlace={handleAddPlaceClick}
+      // onEditAvatar={handleEditAvatarClick}
+      />
       <Footer />
 
       

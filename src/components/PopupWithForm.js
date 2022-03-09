@@ -7,7 +7,7 @@ function PopupWithForm({ name, title, children, buttonText, isOpen }) {
             <div className={`popup popup_type_${name}`} >
                 <div className="popup__content">
                     <h3 className="popup__title">{title}</h3>
-                    <button type="button" class="popup__close"></button>
+                    <button type="button" className="popup__close"></button>
                     <form action="#" className={`popup__form popup__form_${name}`} name="userform" novalidate>
                         {children}
                         <button type="submit" className="popup__submit button">{buttonText}</button>
@@ -16,12 +16,7 @@ function PopupWithForm({ name, title, children, buttonText, isOpen }) {
             </div>
 
 
-            /* <input type="text" id="name-input" placeholder="Имя" className="popup__input popup__input_type_name"
-                            name="username" minlength="2" maxlength="40" required />
-                        <span className="popup__error name-input-error"></span>
-                        <input type="text" id="job-input" placeholder="О себе" name="userjob"
-                            className="popup__input popup__input_type_description" minlength="2" maxlength="200" required />
-                        <span className="popup__error job-input-error"></span>
+            /* 
 
 
 
