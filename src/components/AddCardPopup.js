@@ -1,13 +1,14 @@
 import React from 'react';
 import PopupWithForm from "./PopupWithForm";
 
-function AddCardPopup() {
+function AddCardPopup({isOpen, onClose}) {
     return (
         <PopupWithForm
            name="new-card"
            title="Новое место"
-           buttonText={Сохранить}
+           buttonText={'Сохранить'}
            isOpen ={isOpen}
+           onClose = {onClose}
         > 
                         
                         
@@ -16,8 +17,8 @@ function AddCardPopup() {
         placeholder="Название" 
         className="popup__input popup__input_type_name-card"
         name="cardname" 
-        minlength="2" 
-        maxlength="30" required />
+        minLength="2" 
+        maxLength="30" required />
 
                         
         <span className="popup__error card-input-error"></span>

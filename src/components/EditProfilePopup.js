@@ -1,21 +1,22 @@
 import React from 'react';
 import PopupWithForm from "./PopupWithForm";
 
-function EditProfilePopup() {
+function EditProfilePopup({isOpen, onClose}) {
     return (
         <PopupWithForm 
         name = "profile"
         title = "Редактировать профиль"
-        buttonText ={Сохранить}
+        buttonText ={'Сохранить'}
         isOpen ={isOpen}
+        onClose = {onClose}
         >
         <input type="text" 
         id="name-input" 
         placeholder="Имя" 
         className="popup__input popup__input_type_name"
         name="username" 
-        minlength="2" 
-        maxlength="40" 
+        minLength="2" 
+        maxLength="40" 
         required />
                         
         <span className="popup__error name-input-error"></span>
@@ -25,8 +26,8 @@ function EditProfilePopup() {
         placeholder="О себе" 
         name="userjob"
         className="popup__input popup__input_type_description" 
-        minlength="2" 
-        maxlength="200" 
+        minLength="2" 
+        maxLength="200" 
         required />
                         
         <span className="popup__error job-input-error"></span>

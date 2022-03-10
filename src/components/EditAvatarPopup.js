@@ -1,13 +1,14 @@
 import React from 'react';
 import PopupWithForm from "./PopupWithForm";
 
-function EditAvatarPopup() {
+function EditAvatarPopup({isOpen, onClose}) {
     return (
         <PopupWithForm
             name="avatar"
             title="Обновить аватар"
-            buttonText={Сохранить}
+            buttonText={'Сохранить'}
             isOpen ={isOpen}
+            onClose = {onClose}
         >
 
             <input type="url" 
