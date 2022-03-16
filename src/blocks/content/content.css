@@ -1,15 +1,15 @@
 .content {
-    max-width: 282px;
+  max-width: 282px;
 }
 
 @media screen and (min-width: 768px) {
-    .content {
-        max-width: 580px;
-    }
+  .content {
+    max-width: 580px;
+  }
 }
 
 @media screen and (min-width: 1024px) {
-    .content {
-        max-width: 880px;
-    }
+  .content {
+    max-width: 880px;
+  }
 }
