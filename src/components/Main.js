@@ -1,43 +1,11 @@
 import React, { useEffect, useState } from "react";
-import Api from "../utils/Api";
+//import Api from "../utils/Api";
 import Card from "./Card";
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
 
-function Main({ onEditProfile, onAddPlace, onEditAvatar, onCardClick }) {
-  // const [userName, setUserName] = useState("");
-  // const [userDescription, setUserDescription] = useState("");
-  // const [userAvatar, setUserAvatar] = useState("");
-  const [cards, setUserCards] = useState([]);
+function Main({ cards, onEditProfile, onAddPlace, onEditAvatar, onCardClick, onCardLike, onCardDelete }) {
 
   const userInfo = React.useContext(CurrentUserContext);
-
-  // useEffect(() => {
-  //   Api.getUserInfo()
-  //     .then((res) => {
-  //       setUserName(res.name);
-  //       setUserDescription(res.about);
-  //       setUserAvatar(res.avatar);
-  //     })
-  //     .catch((error) => console.log(error));
-  // }, []);
-
-  useEffect(() => {
-    Api.getInitialCards()
-      .then((res) => {
-        setUserCards(res);
-      })
-      .catch((error) => console.log(error));
-  }, []);
-
-  function handleCardLike(card) {
-    // Снова проверяем, есть ли уже лайк на этой карточке
-    const isLiked = card.likes.some(i => i._id === userInfo._id);
-    
-    // Отправляем запрос в API и получаем обновлённые данные карточки
-    Api.toggleLike(card._id, !isLiked).then((newCard) => {
-        setUserCards((state) => state.map((c) => c._id === card._id ? newCard : c));
-    });
-}
 
   return (
     <main className="content root__content">
@@ -64,7 +32,7 @@ function Main({ onEditProfile, onAddPlace, onEditAvatar, onCardClick }) {
       </section>
       <section className="places">
         {cards.map((card) => (
-          <Card card={card} key={card._id} onCardClick={onCardClick} onCardLike={handleCardLike} />
+          <Card card={card} key={card._id} onCardClick={onCardClick} onCardLike={onCardLike} onCardDelete={onCardDelete}/>
         ))}
       </section>
     </main>

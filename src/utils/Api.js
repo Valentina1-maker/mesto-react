@@ -21,14 +21,11 @@ class Api {
     }).then((res) => this._checkResponse(res));
   }
 
-  createCard({ cardname, linkcard }) {
+  createCard(cardData) {
     return fetch(`${this._url}/cards`, {
       method: "POST",
       headers: this._headers,
-      body: JSON.stringify({
-        name: cardname,
-        link: linkcard,
-      }),
+      body: JSON.stringify(cardData),
     }).then((res) => this._checkResponse(res));
   }
 
@@ -39,14 +36,11 @@ class Api {
     }).then((res) => this._checkResponse(res));
   }
 
-  editProfile({ username, userjob }) {
+  editProfile(userData) {
     return fetch(`${this._url}/users/me`, {
       method: "PATCH",
       headers: this._headers,
-      body: JSON.stringify({
-        name: username,
-        about: userjob,
-      }),
+      body: JSON.stringify(userData),
     }).then((res) => this._checkResponse(res));
   }
 

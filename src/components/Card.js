@@ -2,7 +2,7 @@ import React from "react";
 import { CurrentUserContext } from "../contexts/CurrentUserContext"
 import { useContext } from "react";
 
-function Card({ card, onCardClick, onCardLike }) {
+function Card({ card, onCardClick, onCardLike, onCardDelete }) {
   const currentUserId = useContext(CurrentUserContext)._id
 
 
@@ -14,11 +14,15 @@ function Card({ card, onCardClick, onCardLike }) {
     onCardLike(card)
   }
 
+  function handleDeleteClick() {
+    onCardDelete(card)
+  }
+
   const isOwn = card.owner._id === currentUserId
   const isLiked = card.likes.some(i => i._id === currentUserId)
 
   const cardDeleteButtonClassName = (
-    `place__delete-btn ${isOwn ? 'card__delete-button_none' : 'card__delete-btn'}`
+    `place__delete-btn ${isOwn ? '' : 'place__delete-btn_none'}`
   ); 
 
   const cardLikeButtonClassName = (
@@ -34,7 +38,7 @@ function Card({ card, onCardClick, onCardLike }) {
         onClick={handleClick}
         alt={card.name}
       />
-      <button className={cardDeleteButtonClassName}></button>
+      <button className={cardDeleteButtonClassName} onClick={handleDeleteClick}></button>
       <div className="place__text">
         <h3 className="place__title">{card.name}</h3>
         <div className="place__likes">

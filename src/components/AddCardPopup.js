@@ -1,7 +1,30 @@
 import React from "react";
 import PopupWithForm from "./PopupWithForm";
+import { useState, useEffect } from "react";
 
-function AddCardPopup({ isOpen, onClose }) {
+
+function AddCardPopup({ isOpen, onClose, onAddPlace }) {
+  const [name, setName] = useState('');
+  const [link, setLink] = useState('');
+
+
+  function handleNameChange(e) {
+    setName(e.target.value)
+  }
+
+  function handleLinkChange(e) {
+    setLink(e.target.value)
+  }
+
+
+  function handleSubmitCard(e) {
+    e.preventDefault();
+    onAddPlace({
+      name,
+      link,
+    });
+  }
+
   return (
     <PopupWithForm
       name="new-card"
@@ -9,6 +32,7 @@ function AddCardPopup({ isOpen, onClose }) {
       buttonText={"Сохранить"}
       isOpen={isOpen}
       onClose={onClose}
+      handleSubmit={handleSubmitCard}
     >
       <input
         type="text"
@@ -18,6 +42,7 @@ function AddCardPopup({ isOpen, onClose }) {
         name="cardname"
         minLength="2"
         maxLength="30"
+        onClick={handleNameChange}
         required
       />
 
@@ -29,6 +54,7 @@ function AddCardPopup({ isOpen, onClose }) {
         placeholder="Ссылка на картинку"
         name="linkcard"
         className="popup__input popup__input_type_link"
+        onclick={handleLinkChange}
         required
       />
 
