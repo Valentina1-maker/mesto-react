@@ -4,22 +4,22 @@ import { useState } from "react";
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
 
 function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
-  const [name, setName] = useState('');
-  const [about, setAbout] = useState('');
+  const [name, setName] = useState("");
+  const [about, setAbout] = useState("");
   const userInfo = React.useContext(CurrentUserContext);
 
   function handleNameChange(e) {
-    setName(e.target.value)
+    setName(e.target.value);
   }
 
   function handleAboutChange(e) {
-    setAbout(e.target.value)
+    setAbout(e.target.value);
   }
 
-  useEffect(()=> {
+  useEffect(() => {
     setName(userInfo.name);
-    setAbout(userInfo.about)
-  }, [userInfo, isOpen])
+    setAbout(userInfo.about);
+  }, [userInfo, isOpen]);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -28,7 +28,6 @@ function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
       about,
     });
   }
-
 
   return (
     <PopupWithForm
@@ -48,7 +47,7 @@ function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
         minLength="2"
         maxLength="40"
         onChange={handleNameChange}
-        value={name || ''}
+        value={name || ""}
         required
       />
 
@@ -63,7 +62,7 @@ function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
         minLength="2"
         maxLength="200"
         onChange={handleAboutChange}
-        value={about || ''}
+        value={about || ""}
         required
       />
 

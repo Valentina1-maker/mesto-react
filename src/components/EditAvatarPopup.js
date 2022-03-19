@@ -3,10 +3,10 @@ import PopupWithForm from "./PopupWithForm";
 
 function EditAvatarPopup({ isOpen, onClose, onUpdateAvatar }) {
   const counterRef = React.useRef(0);
-  
+
   function handleSubmit(e) {
     e.preventDefault();
-  
+
     onUpdateAvatar({
       avatar: counterRef.current.value,
     });
@@ -27,6 +27,7 @@ function EditAvatarPopup({ isOpen, onClose, onUpdateAvatar }) {
         placeholder="Ссылка на картинку"
         name="avatar"
         className="popup__input popup__input_type_link"
+        defaultValue={""}
         ref={counterRef}
         required
       />
