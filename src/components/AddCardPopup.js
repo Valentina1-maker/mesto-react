@@ -1,6 +1,6 @@
 import React from "react";
 import PopupWithForm from "./PopupWithForm";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function AddCardPopup({ isOpen, onClose, onAddPlace }) {
   const [name, setName] = useState("");
@@ -22,6 +22,11 @@ function AddCardPopup({ isOpen, onClose, onAddPlace }) {
     });
   }
 
+  useEffect(() => {
+    setName("");
+    setLink("");
+  }, [isOpen]);
+
   return (
     <PopupWithForm
       name="new-card"
@@ -40,6 +45,7 @@ function AddCardPopup({ isOpen, onClose, onAddPlace }) {
         minLength="2"
         maxLength="30"
         onChange={handleNameChange}
+        value={name}
         required
       />
 
@@ -52,6 +58,7 @@ function AddCardPopup({ isOpen, onClose, onAddPlace }) {
         name="linkcard"
         className="popup__input popup__input_type_link"
         onChange={handleLinkChange}
+        value={link}
         required
       />
 
