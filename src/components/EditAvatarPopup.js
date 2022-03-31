@@ -3,18 +3,18 @@ import PopupWithForm from "./PopupWithForm";
 import { useEffect } from "react";
 
 function EditAvatarPopup({ isOpen, onClose, onUpdateAvatar }) {
-  const counterRef = React.useRef();
+  const avatarRef = React.useRef();
 
   function handleSubmit(e) {
     e.preventDefault();
 
     onUpdateAvatar({
-      avatar: counterRef.current.value,
+      avatar: avatarRef.current.value,
     });
   }
 
   useEffect(() => {
-    counterRef.current.value = "";
+    avatarRef.current.value = "";
   }, [isOpen]);
 
   return (
@@ -33,7 +33,7 @@ function EditAvatarPopup({ isOpen, onClose, onUpdateAvatar }) {
         name="avatar"
         className="popup__input popup__input_type_link"
         defaultValue={""}
-        ref={counterRef}
+        ref={avatarRef}
         required
       />
 
